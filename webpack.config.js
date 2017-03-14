@@ -6,6 +6,13 @@ module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./js/client.js",
+  devServer: {
+    historyApiFallback: {
+      rewrites: [
+        { from: /./, to: '/views/index.html' }
+      ]
+    }
+  },
   module: {
     loaders: [
       {
